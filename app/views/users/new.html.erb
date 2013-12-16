@@ -1,0 +1,25 @@
+<% provide(:title, "New User") %>
+<h1>New User</h1>
+<%= form_for :user, url: users_path do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-error">
+        The form contains <%= pluralize(@user.errors.count, "error") %>.
+      </div>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,29 @@
+<% provide(:title, "All Users") %>
+<h1>All Users</h1>
+<div class="row">
+  <div class="span3">Username</div>
+  <div class="span9">Status</div>
+</div>
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="span3"><%= user.username %></div>
+    <div class="span9">
+      <% if user.status == :active %>
+        <p>This user is active.</p>
+      <% elsif user.status == :inactive %>
+        <p>This user is no longer active.</p>
+      <% elsif user.status == :suspended %>
+        <p>The user was suspended.</p>
+      <% elsif user.status.nil? %>
+        <p>No status for this user.</p>
+      <% else %>
+        <p>Don't understand status: <%= user.status.to_s %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<% if @users.empty? %>
+  <div class="row">
+    There are no users to show.
+  </div>
+<% end %>
