@@ -1,3 +1,3 @@
 # Be sure to restart your server when you modify this file.
 
-TemplateBootstrapSite::Application.config.session_store :cookie_store, key: '_template_bootstrap_site_session'
+SimpleEnumeration::Application.config.session_store :cookie_store, key: '_simple_enumeration_site_session'
